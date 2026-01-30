@@ -1,5 +1,5 @@
 <script setup>
-import Dashboard from './views/Dashboard.vue';
+import ItemOrder from '@/components/orderComponent/itemOrder.vue';
 
 
 
@@ -8,8 +8,7 @@ import Dashboard from './views/Dashboard.vue';
 
 <template>
 
-<Dashboard />
-
+<ItemOrder />
 </template>
 
 

@@ -1,5 +1,5 @@
 <script setup>
-import Dashboard from './views/Dashboard.vue';
+import ItemHome from '@/components/homeComponent/ItemHome.vue';
 
 
 
@@ -8,7 +8,7 @@ import Dashboard from './views/Dashboard.vue';
 
 <template>
 
-<Dashboard />
+<ItemHome />
 
 </template>
 
