@@ -1,32 +1,34 @@
 <script setup>
 const props = defineProps({
     datas: Object,
-    index:Number
+    index: Number
 })
 
-const emit = defineEmits(['delete'])
+const emit = defineEmits(['delete', 'statut'])
 
-function deleteItem(){
+function deleteItem() {
     emit('delete', props.datas.id)
+}
+
+function toogle(){
+    emit('statut', props.datas)
 }
 </script>
 
 
 <template>
 
-        <div class="item">
-            <span>{{ index+1 }}</span>
-            <span>{{ datas.title }}</span>
-            <span>{{ datas.author }}</span>
-            <span><span class="read">A Lire</span><span class="hasRead">Marquer lu</span></span>
-            <button @click="deleteItem" class="btnDel">❌</button>
-        </div>
+    <div id="item" :class="datas.isRead? 'active' : ''">
+        <span :class="datas.isRead ? 'underline' : ''">{{ index + 1 }} {{ datas.title }} {{ datas.author }}</span>
+        <span><span class="read">{{ datas.isRead ? 'Lu' : 'A lire' }}</span><button @click="toogle" class="hasRead" >{{ datas.isRead? 'Marquer non Lu':'Marquer Lu' }}</button></span>
+        <button @click="deleteItem" class="btnDel">❌</button>
+    </div>
 
 </template>
 
 
 <style scoped>
-.item{
+#item {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,7 +39,7 @@ function deleteItem(){
     margin-top: 5px;
 }
 
-.read{
+.read {
     background-color: gray;
     border: 1px solid;
     padding: 3px;
@@ -45,14 +47,22 @@ function deleteItem(){
     cursor: pointer;
 }
 
-.hasRead{
+.hasRead {
     background-color: fff;
     border: 1px solid;
     padding: 3px;
     cursor: pointer;
 }
 
-.btnDel{
+.btnDel {
     cursor: pointer;
+}
+
+.active{
+    background-color: rgb(197, 240, 223);
+}
+
+.underline{
+    text-decoration: line-through;
 }
 </style>

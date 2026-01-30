@@ -14,6 +14,10 @@ function getDelete(id){
     myDatas.value = myDatas.value.filter(t => t.id !== id)
 }
 
+function getStatus(data){
+    data.isRead = !data.isRead
+}
+
 </script>
 
 
@@ -26,7 +30,7 @@ function getDelete(id){
         <div class="container">
             <Form @submit="getData" />
 
-            <Display :data="myDatas" @delete="getDelete" />
+            <Display :data="myDatas" @delete="getDelete" @status="getStatus" />
         </div>
     </main>
 

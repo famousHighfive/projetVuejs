@@ -11,9 +11,6 @@ const category = ref()
 
 let id = 1  // initialisation d'un ID
 
-// tableau principal
-// const books = ref([])
-
 function submitForm(){
 
     // Verification des input valide
@@ -28,7 +25,8 @@ function submitForm(){
         title: title.value.trim(),
         author: author.value.trim(),
         date: date.value,
-        category: category.value.trim()
+        category: category.value.trim(),
+        isRead: false
      })
 
     //  Reinitialiser les champs
