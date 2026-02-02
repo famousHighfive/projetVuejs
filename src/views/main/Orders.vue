@@ -1,18 +1,9 @@
 <script setup>
-import ItemOrder from '@/components/orderComponent/itemOrder.vue';
-
-
-
+import ItemOrder from '@/components/orderComponent/itemOrder.vue'
 </script>
 
-
 <template>
-
-<ItemOrder />
+  <ItemOrder />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

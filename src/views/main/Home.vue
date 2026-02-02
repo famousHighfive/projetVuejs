@@ -1,19 +1,9 @@
 <script setup>
-import ItemHome from '@/components/homeComponent/ItemHome.vue';
-
-
-
+import ItemHome from '@/components/homeComponent/ItemHome.vue'
 </script>
 
-
 <template>
-
-<ItemHome />
-
+  <ItemHome />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

@@ -8,7 +8,7 @@
       <div class="badge">Bienvenue sur mon App</div>
       <h1>HIGHFIVE <span class="gradient-text">Projet Vue</span></h1>
       <p>Une interface propre, rapide et prête à être personnalisée selon vos envies.</p>
-      
+
       <div class="actions">
         <button class="btn-primary">Commencer</button>
         <button class="btn-secondary">En savoir plus</button>
@@ -38,7 +38,11 @@
 <style scoped>
 /* Couleurs & Variables */
 .home-container {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
   color: #2d3436;
   max-width: 1200px;
   margin: 0 auto;
@@ -96,7 +100,9 @@ button {
   border-radius: 12px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
   border: none;
 }
 
@@ -147,14 +153,28 @@ h3 {
 
 /* Animation */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive mobile */
 @media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  .actions { flex-direction: column; align-items: center; }
-  button { width: 100%; max-width: 300px; }
+  h1 {
+    font-size: 2.5rem;
+  }
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  button {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 </style>

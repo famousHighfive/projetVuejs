@@ -1,19 +1,9 @@
 <script setup>
-import Dashboard from './views/Dashboard.vue';
-
-
-
+import Dashboard from './views/Dashboard.vue'
 </script>
 
-
 <template>
-
-<Dashboard />
-
+  <Dashboard />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

@@ -1,19 +1,9 @@
 <script setup>
-import ItemUsers from '@/components/usersComponent/ItemUsers.vue';
-
-
-
+import ItemUsers from '@/components/usersComponent/ItemUsers.vue'
 </script>
 
-
 <template>
-
-<ItemUsers />
-
+  <ItemUsers />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

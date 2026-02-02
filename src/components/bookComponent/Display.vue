@@ -1,50 +1,56 @@
 <script setup>
-import { computed } from 'vue';
-import SingleItem from './SingleItem.vue';
+import { computed } from 'vue'
+import SingleItem from './SingleItem.vue'
 
 const props = defineProps({
-    data: Array
+  books: {
+    type: Array,
+    required: true,
+  },
 })
 
-const emit = defineEmits(['delete', 'status'])
+const emit = defineEmits(['delete-book', 'toogle-status'])
 
-function goDelete(id){
-    emit('delete', id)
+const totalRead = computed(() => props.books.filter((book) => book.isRead).length)
+
+function deleteBook(id) {
+  emit('delete-book', id)
 }
 
-function goStatus(data){
-    emit('status', data)
+function toogleStatus(id) {
+  emit('toogle-status', id)
 }
-
-const totalLu = computed(() => props.data.filter(t => t.isRead == true).length)
-
 </script>
 
-
 <template>
+  <div class="container">
+    <div v-if="books.length">
+      <SingleItem
+        v-for="(book, index) in books"
+        :key="book.id"
+        :book="book"
+        :index="index"
+        @delete-book="deleteBook"
+        @toogle-statut="toogleStatus"
+      />
 
-<div class="container">
-    <div v-if="data.length">
-        <SingleItem v-for="(dat, index) in data" :key="dat.id" :datas="dat, index" @delete="goDelete" @statut="goStatus" />
-
-        <p>Total: {{ data.length }}</p>
-        <p>Lu: {{ totalLu }}</p>
+      <p>Total: {{ books.length }}</p>
+      <p>Lu: {{ totalRead }}</p>
     </div>
     <p v-else>Aucun enregistrement❌</p>
-</div>
-
+  </div>
 </template>
 
-
 <style scoped>
-.container{
-    margin-block: 1.3rem;
-    width: 40%;
-    margin-inline: auto;
+.container {
+  margin-block: 1.3rem;
+  max-width: 600px;
+  margin-inline: auto;
 }
 
-.container p{
-    font-size: 1.6rem;
-    text-align: center;
+.container p {
+  font-size: 1.2rem;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
 }
 </style>

@@ -1,68 +1,70 @@
 <script setup>
 const props = defineProps({
-    datas: Object,
-    index: Number
+  book: {
+    type: Object,
+    required: true,
+  },
+  index: Number,
 })
 
-const emit = defineEmits(['delete', 'statut'])
+const emit = defineEmits(['delete-book', 'toogle-statut'])
 
 function deleteItem() {
-    emit('delete', props.datas.id)
+  emit('delete-book', props.book.id)
 }
 
-function toogle(){
-    emit('statut', props.datas)
+function toogleRead() {
+  emit('toogle-statut', props.book.id)
 }
 </script>
 
-
 <template>
-
-    <div id="item" :class="datas.isRead? 'active' : ''">
-        <span :class="datas.isRead ? 'underline' : ''">{{ index + 1 }} {{ datas.title }} {{ datas.author }}</span>
-        <span><span class="read">{{ datas.isRead ? 'Lu' : 'A lire' }}</span><button @click="toogle" class="hasRead" >{{ datas.isRead? 'Marquer non Lu':'Marquer Lu' }}</button></span>
-        <button @click="deleteItem" class="btnDel">❌</button>
+  <div class="item" :class="{ active: book.isRead }">
+    <span :class="{ underline: book.isRead }"
+      >{{ index + 1 }}. {{ book.title }} - {{ book.author }}</span
+    >
+    <div>
+      <span class="read">{{ book.isRead ? 'Lu' : 'A lire' }}</span
+      ><button @click="toogleRead" class="hasRead">
+        {{ book.isRead ? 'Marquer non Lu' : 'Marquer Lu' }}
+      </button>
     </div>
-
+    <button @click="deleteItem" class="btnDel">❌</button>
+  </div>
 </template>
 
-
 <style scoped>
-#item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.6rem;
-    border: 1px solid;
-    border-radius: 5px;
-    padding: 0.6rem;
-    margin-top: 5px;
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6rem;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.6rem;
+  margin-top: 5px;
 }
 
 .read {
-    background-color: gray;
-    border: 1px solid;
-    padding: 3px;
-    color: white;
-    cursor: pointer;
+  background-color: gray;
+  padding: 3px;
+  color: white;
 }
 
 .hasRead {
-    background-color: fff;
-    border: 1px solid;
-    padding: 3px;
-    cursor: pointer;
+  border: 1px solid;
+  cursor: pointer;
 }
 
 .btnDel {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.active{
-    background-color: rgb(197, 240, 223);
+.active {
+  background-color: rgb(197, 240, 223);
 }
 
-.underline{
-    text-decoration: line-through;
+.underline {
+  text-decoration: line-through;
 }
 </style>

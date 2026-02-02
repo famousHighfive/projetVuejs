@@ -1,19 +1,9 @@
 <script setup>
-import ItemRepports from '@/components/reportsComponent/ItemRepports.vue';
-
-
-
+import ItemRepports from '@/components/reportsComponent/ItemRepports.vue'
 </script>
 
-
 <template>
-
-<ItemRepports />
-
+  <ItemRepports />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

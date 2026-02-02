@@ -1,21 +1,23 @@
 <script setup>
-import { ref } from 'vue';
-import SideBar from './layouts/SideBar.vue';
-import Home from './main/Home.vue';
-import Book from './main/Book.vue';
-import Users from './main/Users.vue';
-import FormUsers from './main/FormUsers.vue';
-import Orders from './main/Orders.vue';
-import Reports from './main/Reports.vue';
-import Settings from './main/Settings.vue';
+import { computed, ref } from 'vue'
+import SideBar from './layouts/SideBar.vue'
+import Home from './main/Home.vue'
+import Book from './main/Book.vue'
+import Users from './main/Users.vue'
+import FormUsers from './main/FormUsers.vue'
+import Orders from './main/Orders.vue'
+import Reports from './main/Reports.vue'
+import Settings from './main/Settings.vue'
 
-const currentPage = ref('Home')
+const pages = { Home, Book, Users, FormUsers, Orders, Reports, Settings }
 
-function gotoPage(val){
-    currentPage.value = val;
+const currentPage = ref('Home') // Gestion de l'Etat
+
+const currentComponent = computed(() => pages[currentPage.value])
+
+function gotoPage(page) {
+  currentPage.value = page.component
 }
-
-
 </script>
 
 <template>
@@ -24,13 +26,7 @@ function gotoPage(val){
       <SideBar @view="gotoPage" />
     </header>
     <main>
-      <Home v-if="currentPage == 'Home'" />
-      <Book v-else-if="currentPage == 'Book'"/>
-      <Users v-else-if="currentPage == 'Users'"/>
-      <FormUsers v-else-if="currentPage == 'FormUsers'"/>
-      <Orders v-else-if="currentPage == 'Orders'"/>
-      <Reports v-else-if="currentPage == 'Reports'"/>
-      <Settings v-else-if="currentPage == 'Settings'"/>
+      <component :is="currentComponent" />
     </main>
   </div>
 </template>
@@ -38,6 +34,12 @@ function gotoPage(val){
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 240px 1fr;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

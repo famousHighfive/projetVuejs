@@ -1,19 +1,9 @@
 <script setup>
-import ItemSettings from '@/components/settingsComponent/ItemSettings.vue';
-
-
-
+import ItemSettings from '@/components/settingsComponent/ItemSettings.vue'
 </script>
 
-
 <template>
-
-<ItemSettings />
-
+  <ItemSettings />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>

@@ -1,19 +1,9 @@
 <script setup>
-import ItemFormUser from '@/components/formusersComponent/itemFormUser.vue';
-
-
-
+import ItemFormUser from '@/components/formusersComponent/itemFormUser.vue'
 </script>
 
-
 <template>
-
-<ItemFormUser />
-
+  <ItemFormUser />
 </template>
 
-
-<style scoped>
-
-
-</style>
+<style scoped></style>
